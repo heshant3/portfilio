@@ -1,0 +1,95 @@
+/* :root {
+  --color: 18, 18, 18;
+  --cursor-size: 8px;
+}
+
+.custom-cursor {
+  pointer-events: none;
+}
+
+
+* {
+  cursor:pointer ;
+}
+
+body {
+  overflow:scroll;
+}
+
+.custom-cursor {
+  
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border: calc(var(--cursor-size) / 30%) solid #fff;
+  border-radius: 50%;
+  animation: cursor 800ms infinite alternate ease-in-out;
+}
+
+.custom-cursor:before {
+  content: '';
+  display: block;
+  width: calc(var(--cursor-size) / 2);
+  height: calc(var(--cursor-size) / 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: calc(var(--cursor-size) / 6) solid rgba(var(--color), 0.5);
+  border-radius: 50%;
+  animation: cursor-before 800ms infinite alternate ease-in-out;
+}
+
+@keyframes cursor {
+  from {
+    transform: scale(1);
+    border-color: #fff;
+  }
+  to {
+    transform: scale(1.5);
+    border-color: rgb(var(--color));
+  }
+}
+
+@keyframes cursor-before {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    border-color: rgba(var(--color), 0.5);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+    border-color: rgba(var(--color), 0.75);
+  }
+}
+
+.custom-cursor.click {
+  animation: cursor-click 800ms normal ease-in-out;
+}
+
+@keyframes cursor-click {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2.5);
+    border-color: rgb(var(--color));
+  }
+}
+
+
+
+@media screen and (max-width: 576px) {
+  :root{
+
+    --cursor-size: 0px;
+  }
+
+  body {
+    overflow:scroll;
+  }
+
+} */

@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;700;800&display=swap");
+
+html {
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  overflow: hidden;
+}
+
+.containerr {
+  height: 100%;
+}
+
+.containerr .left {
+  color: #000000;
+  line-height: 0.6em;
+  font-size: 60px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  width: 50%;
+  background-color: #edecec;
+  float: left;
+}
+
+.containerr .left span {
+  color: #000000;
+  padding-left: 14px;
+  letter-spacing: 10px;
+  font-size: 18px;
+  font-weight: 200;
+}
+.containerr a:link {
+  text-decoration: none;
+}
+
+.containerr .right {
+  padding-top: -10px;
+  color: #ffffff;
+  line-height: 0.6em;
+  font-size: 60px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  width: 50%;
+  background-color: #000000;
+}
+
+.containerr .right span {
+  padding-left: 20px;
+  letter-spacing: 14.4px;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.containerr .right:hover {
+  background-color: #222222;
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  transition: all 0.5s ease-out;
+}
+
+.containerr .left:hover {
+  background-color: #cfcfcf;
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
+  transition: all 0.5s ease-out;
+}
+
+@media screen and (max-width: 576px) {
+  .containerr .left {
+    font-size: 50px;
+  }
+
+  .containerr .right {
+    padding-top: -1px;
+    font-size: 50px;
+  }
+
+  .containerr .left span {
+    letter-spacing: 9px;
+    font-size: 15px;
+    padding-left: 10px;
+  }
+
+  .containerr .right span {
+    padding-left: 17px;
+    letter-spacing: 12.4px;
+    font-size: 15px;
+  }
+}

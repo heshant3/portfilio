@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+
+.navbar  {
+  -webkit-tap-highlight-color: transparent;
+  display:flexbox;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  position: fixed;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  bottom: 0.2px;
+  height: 2.4rem;
+}
+
+.navbar .listItem.pinkk {
+  color: rgb(255, 254, 255);
+}
+
+.navbar .listItem {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin: 0 70px;
+  transition: transform 0.2s;
+}
+
+
+
+.navbar .active {
+ 
+  color: rgb(255, 255, 255);
+  background-color: #090909;
+  border-radius: 20px 20px 0px 0px;
+  padding-bottom: 60px;
+  padding-top: 15px;
+  padding-left: 6px;
+  padding-right: 6px;
+  transition: padding-top 0.4s ease 0s;
+  
+}
+
+
+
+
+@media screen and (max-width: 576px) {
+  .navbar .listItem {
+    margin: 0 25px;
+    
+  }
+
+  .navbar .listItem:hover {
+ 
+    color: rgb(255, 255, 255);
+    
+    
+  }
+
+
+  .navbar .active {
+ 
+  color: rgb(255, 255, 255);
+  background-color: #090909;
+  border-radius: 20px 20px 0px 0px;
+  padding-bottom: 60px;
+  padding-top: 15px;
+  padding-left: 6px;
+  padding-right: 6px;
+  transition: padding-top 0.4s ease 0s;
+  
+}
+}
