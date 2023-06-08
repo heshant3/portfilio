@@ -6,13 +6,20 @@
 
 
 
+.wrapper .demo div {
+	position:absolute;
+	display:inline-block;
+	white-space:nowrap;
+  
+}
+
+
 .wrapper {
-  padding-top: 100px;
+  padding-top: 25px;
   display: flex;
   flex-wrap: wrap;
   height: auto;
   width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px 0px;
@@ -21,7 +28,7 @@
 .wrapper .main {
   font-family: "Inter", sans-serif;
   letter-spacing: 0.2rem;
-  height: 340px;
+  height: 80svh;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -36,17 +43,24 @@
   text-align: left; */
 }
 
-.wrapper .main .txtbottom{
+.wrapper .robot{
+  /* background-color: aqua; */
+  width: 60%;
+}
 
-  font-size: 15px;
+
+
+.wrapper .main .txtbottom{
+  margin-top: 5px;
+  font-size: 17px;
   letter-spacing: 2.5px;
   font-weight: 400;
 }
 
 .wrapper .main .txttop{
   font-weight: 600;
- margin-top: -6px;
-  font-size: 40px;
+  margin-top: -10px;
+  font-size: 50px;
 }
 
 
@@ -70,16 +84,53 @@
 }
 
 
-@media screen and (max-width: 576px) {
+.dropping-texts {
+  height:50px;
+  overflow:hidden;
+}
+
+@media only screen and (max-width: 600px) {
 
   .wrapper {
-
-    padding-top: 0px;
+    gap: 0px;
+    padding-top: 60px;
   }
 
   .wrapper .main {
-    text-align:center;
+    margin-top: -60px;
+    height: 55svh;
+    justify-content: center;
     align-items:center;
+    text-align: center;
+  }
+
+  .wrapper  .robot{
+    padding-top: -10px;
+    width: 100%;
+    height: 65svh;
+
+  }
+
+  .wrapper  .txt{
+    padding-top: 60px;
+    height: 40svh;
+
+  }
+  .wrapper .main .txttop{
+
+    font-size: 40px;
+
+  }
+
+
+  .wrapper .main .txtbottom {
+    letter-spacing: 1.1px;
+    font-size: 15px;
+    margin-left: -305px;
+  }
+
+  .wrapper .main .txtbottom .txttop1{
+    margin-left: 19px;
   }
 
   .wrapper .main h1 {
@@ -87,12 +138,66 @@
     margin-left: 10px;
   }
   
+
+
 }
 
 
-.dropping-texts {
-  height:50px;
-  overflow:hidden;
+
+@media only screen and (min-width: 610px) and (max-width: 900px)  {
+
+  .wrapper {
+    gap: 0px;
+    padding-top: 60px;
+  }
+
+  .wrapper .main {
+    margin-top: -60px;
+    height: 55svh;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+  }
+
+  .wrapper  .robot{
+    width: 100%;
+    padding-top: -10px;
+    height: 65svh;
+
+  }
+
+  .wrapper  .txt{
+    padding-top: 60px;
+    height: 40svh;
+
+  }
+
+  .wrapper .main .txttop{
+    margin-top: 6px;
+    font-size: 55px;
+    letter-spacing: 2.5px;
+  }
+
+  
+
+  .wrapper .main .txtbottom .txttop1{
+    margin-left: 25px; 
+  }
+
+  .wrapper .main .txtbottom {
+    letter-spacing: 1.1px;
+    font-size: 25px;
+    margin-left: -500px; 
+  }
+  .wrapper .main h1 {
+    letter-spacing: -2px;
+    margin-left: 10px;
+  }
+  
+
+
 }
+
+
 
 
