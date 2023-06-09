@@ -130,6 +130,7 @@ html{
   }
 
   .mainAbout .exp .expwaper{
+ 
     display:flex;
     align-items: center;
     justify-content:  space-between;
@@ -137,7 +138,7 @@ html{
 
   .mainAbout .exp .ani
   {
-    width: 400px;
+    width: 500px;
     /* background-color: #ffa2a2; */
   }
 
@@ -150,9 +151,9 @@ html{
   .mainAbout .exp h2{
     font-size: 40px;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 0;
     font-weight: 500;
-    margin-bottom: 6rem;
+    margin-bottom: -2rem;
 }
 
 .mainAbout .exp .expwaper .expitem h3{
@@ -427,7 +428,7 @@ a.underline-animation:hover::after {
   
 
      .mainAbout{
-        padding: 20px 20px 20px 20px;
+        padding: 60px 20px 20px 20px;
     
     }
 
@@ -457,7 +458,7 @@ a.underline-animation:hover::after {
     }
 
     .mainAbout .txt{
-      font-size: 28px;
+      font-size: 4svh;
       text-align: center;
       margin-bottom: 0px;
       padding-left:0;
@@ -475,9 +476,9 @@ a.underline-animation:hover::after {
 
     .mainAbout .exp .ani
     {    
-    margin-top: -80px;
-      width: 250px;
-    margin-bottom: 60px;
+    margin-top: 20px;
+      width: 350px;
+    margin-bottom:-10px;
       /* background-color: #ffa2a2; */
     }
     .mainAbout .about .content {
@@ -488,8 +489,8 @@ a.underline-animation:hover::after {
 
 
     .mainAbout .about p{
-      line-height: 20px;
-      font-size: 15px;
+      line-height: 3lvh;
+      font-size: 2.3lvh;
         font-weight: 300;
      
     }
@@ -498,7 +499,7 @@ a.underline-animation:hover::after {
     
       .mainAbout .exp .expwaper .expitem h3{
         margin-top: 50px;
-         font-size:18px;
+         font-size:2.4lvh;
     }
 
     .mainAbout .exp  h2{
@@ -511,6 +512,9 @@ a.underline-animation:hover::after {
 
 
   }
+  .grid figure{
+    width:100%;
+  }
 
     .mainAbout .btmtxt{
         margin-bottom: 100px;
@@ -518,7 +522,7 @@ a.underline-animation:hover::after {
       }
 
       .mainAbout .icon{
-           gap: 20px;
+           gap: 25px;
              }
 
       .mainAbout .icon .download-icon {
@@ -527,14 +531,14 @@ a.underline-animation:hover::after {
 
       .mainAbout .btmtxt .botto{
 
-        font-size: 10px;
+        font-size: 15px;
       }
 }
 
 @media only screen and (min-width: 610px) and (max-width: 1025px)  {
 
   .mainAbout{
-    padding: 20px 50px 20px 50px;
+    padding: 20px 20px 20px 20px;
 
 }
 
@@ -584,9 +588,9 @@ margin-left:0;
 
 .mainAbout .exp .ani
 {    
-  margin-top: -80px;
-  width: 500px;
-  margin-bottom: 60px;
+  margin-top: -70px;
+  width: 600px;
+  margin-bottom: -70px;
   /* background-color: #ffa2a2; */
 }
 
@@ -611,7 +615,9 @@ margin-left:0;
 
 .mainAbout .exp  h2{
    font-size:50px;
+   margin-bottom: 2rem;
 }
+
 
 .mainAbout .achiev .achtxt  {
 
@@ -640,6 +646,10 @@ font-size: 50px;
 
   .grid{
     gap:0;
+  }
+
+  .grid figure{
+    width:48%;
   }
 
 }

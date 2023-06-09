@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Environment, ContactShadows } from "@react-three/drei";
-
-import { Model } from "./Robot";
+import { Model } from "../Robot";
 import { Canvas } from "@react-three/fiber";
 import { gsap } from "gsap";
 

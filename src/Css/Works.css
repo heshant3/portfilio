@@ -121,7 +121,7 @@ margin-left: -100px;
 @media screen and (max-width: 600px) {
   .containerr .left {
     background-image: url('../Image/img-bk-4.png');
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 0, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -130,7 +130,7 @@ margin-left: -100px;
   }
 
   .containerr .right {
-    background-size:50rem;
+ 
     font-size: 50px;
   }
 

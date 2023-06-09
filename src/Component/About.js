@@ -2,7 +2,6 @@ import "../Css/About.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useEffect } from "react";
-
 import Lottie from "react-lottie";
 import animationData from "../Lotties/Developer.json";
 import animationData2 from "../Lotties/Work.json";
