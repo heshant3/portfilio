@@ -6,13 +6,13 @@ import { easing } from "maath";
 import { gsap } from "gsap";
 
 export function Model(props) {
+  const robotRef = useRef();
   const dd = useRef();
   const head = useRef();
   const group = useRef();
   const robot = useRef();
   const tl = useRef();
-  const tl2 = useRef();
-  const { nodes, materials, animations } = useGLTF("/Robot.gltf");
+  const { nodes, materials, animations } = useGLTF("/Robotk.gltf");
   const { actions } = useAnimations(animations, group);
 
   const handleMouseEnter = () => {
@@ -42,8 +42,8 @@ export function Model(props) {
     tl.current
       //   .to(robot.current.rotation, { y: -1 }, 2)
       //   .to(robot.current.position, { x: 10 }, 2)
-      .from(robot.current.rotation, { y: 0 }, 0)
-      .to(robot.current.rotation, { y: 6.5 }, 0);
+      .from(robotRef.current.rotation, { y: 0 }, 0)
+      .to(robotRef.current.rotation, { y: 6.5 }, 0);
     // const action2 = actions["middle"];
     // action2.reset();
     // action2.clampWhenFinished = true;
@@ -52,37 +52,29 @@ export function Model(props) {
     // action2.play();
   };
 
-  useEffect(() => {
-    tl.current = gsap.timeline({
+  useLayoutEffect(() => {
+    const tl = gsap.timeline({
       defaults: { duration: 2, ease: "power4.out" },
     });
 
-    tl.current
-      //   .to(robot.current.rotation, { y: -1 }, 2)
-      //   .to(robot.current.position, { x: 10 }, 2)
-      .from(robot.current.position, { x: 29 }, 0)
-      .to(robot.current.position, { z: -20 }, 0)
-      .to(robot.current.position, { z: 20 }, 1)
-      .from(robot.current.rotation, { y: 4 }, 1)
-      .to(robot.current.rotation, { y: 0 }, 1)
-      .to(robot.current.position, { x: 0 }, 1)
-      .to(robot.current.position, { z: 0 }, 1);
+    tl.from(robotRef.current.position, { x: 29 }, 0)
+      .to(robotRef.current.position, { z: -20 }, 0)
+      .to(robotRef.current.position, { z: 20 }, 1)
+      .from(robotRef.current.rotation, { y: 4 }, 1)
+      .to(robotRef.current.rotation, { y: 0 }, 1)
+      .to(robotRef.current.position, { x: 0 }, 1)
+      .to(robotRef.current.position, { z: 0 }, 1);
 
-    tl2.current = gsap.timeline({
-      defaults: { duration: 2, ease: "power1.inOut", repeat: -1, yoyo: true },
-    });
+    // Cleanup function
+    return () => {
+      tl.kill(); // Clean up the timeline when the component unmounts
+    };
+  }, []); // Empty dependency array to ensure it runs only once
 
-    tl2.current.from(robot.current.position, { y: 2 }, 1);
-    tl2.current.to(robot.current.position, { y: 0 }, 1);
-    tl.current.delay(0);
-    tl2.current.delay(3);
-  }, []);
-
-  // useFrame((state) => {
-  //   const t = state.clock.getElapsedTime();
-  //   dd.current.position.y = (0.5 + Math.sin(t / 1)) / 1;
-  //   dd.current.rotation.y = (1 + Math.sin(t / 1.5)) / 3;
-  // });
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    dd.current.position.y = (0.5 + Math.sin(t / 1)) / 1;
+  });
 
   useFrame((state, delta) => {
     const t = (1 + Math.sin(state.clock.elapsedTime * 2)) / 2;
@@ -112,49 +104,51 @@ export function Model(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group ref={head} onClick={handleClick}>
-        <group name="Scene" ref={robot}>
-          <group name="Armature">
-            <primitive object={nodes.Bone} />
-          </group>
-          <group
-            onPointerEnter={handleMouseEnter}
-            onPointerLeave={handleMouseLeave}
-          >
-            <mesh
-              name="Frame"
-              castShadow
-              receiveShadow
-              geometry={nodes.Frame.geometry}
-              material={materials.Material}
-              position={[-0.09, 8.38, -1.05]}
-              scale={[2.87, 2.21, 2.87]}
-              transmission={1.1}
-              material-roughness={0.13}
-            />
-            <mesh
-              name="Head"
-              castShadow
-              receiveShadow
-              geometry={nodes.Head.geometry}
-              material={materials["EVE.002"]}
-              position={[0.52, -3.2, -1.05]}
-              rotation={[Math.PI / 2, 0, 0]}
-              scale={1.38}
-            />
-            <mesh
-              name="Eyes"
-              castShadow
-              receiveShadow
-              geometry={nodes.Eyes.geometry}
-              material={materials.Eyes}
-              morphTargetDictionary={nodes.Eyes.morphTargetDictionary}
-              morphTargetInfluences={nodes.Eyes.morphTargetInfluences}
-              position={[-0.09, 8.2, 0.21]}
-              rotation={[Math.PI / 2, 0, 0]}
-              scale={[1.82, 0.03, 1.82]}
-              material-emissiveIntensity={10}
-              toneMapped={false}
-            />
+        <group ref={dd}>
+          <group name="Scene" ref={robotRef}>
+            <group ref={dd} name="Armature">
+              <primitive object={nodes.Bone} />
+            </group>
+            <group
+              onPointerEnter={handleMouseEnter}
+              onPointerLeave={handleMouseLeave}
+            >
+              <mesh
+                name="Frame"
+                castShadow
+                receiveShadow
+                geometry={nodes.Frame.geometry}
+                material={materials["Material.001"]}
+                position={[-0.09, 8.38, -1.05]}
+                scale={[2.87, 2.21, 2.87]}
+                // transmission={1}
+                material-roughness={0.13}
+              />
+              <mesh
+                name="Head"
+                castShadow
+                receiveShadow
+                geometry={nodes.Head.geometry}
+                material={materials["EVE.002"]}
+                position={[0.52, -3.2, -1.05]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={1.38}
+              />
+              <mesh
+                name="Eyes"
+                castShadow
+                receiveShadow
+                geometry={nodes.Eyes.geometry}
+                material={materials.Eyes}
+                morphTargetDictionary={nodes.Eyes.morphTargetDictionary}
+                morphTargetInfluences={nodes.Eyes.morphTargetInfluences}
+                position={[-0.09, 8.2, 0.21]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[1.82, 0.03, 1.82]}
+                material-emissiveIntensity={10}
+                toneMapped={false}
+              />
+            </group>
           </group>
         </group>
       </group>{" "}
@@ -162,4 +156,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/Robot.gltf");
+useGLTF.preload("/Robotk.gltf");

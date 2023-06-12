@@ -10,7 +10,6 @@ import "../Css/Home.css";
 
 export default function Home() {
   const textRef = useRef(null);
-  const animation = gsap.timeline({ repeat: -1 });
 
   useEffect(() => {
     gsap.to(".text", {
@@ -19,12 +18,6 @@ export default function Home() {
       y: "0%",
       stagger: 0,
     });
-
-    gsap.set(".demo", { autoAlpha: 1 });
-    animation
-      .from(".demo div", { y: 10, opacity: 0, stagger: 3.5 })
-      .to(".demo div", { y: -10, opacity: 0, stagger: 3.5 }, 3.5);
-    animation.delay(2);
   }, []);
 
   return (
@@ -36,16 +29,15 @@ export default function Home() {
           </span>
         </h1>
         <h1 className="txttop">
-          <span ref={textRef} className="text txttop">
-            I'm UI/UX Engineer
+          <span ref={textRef} className="text txttop rp1">
+            I'm a UI/UX Engineer
           </span>
         </h1>
 
-        <h1 className="txtbottom">
-          <div class="demo">
-            <div class="txttop1">A Creative Designer from Sri Lanka</div>
-            <div>Developing Front End , Designing UI/UX</div>
-          </div>
+        <h1>
+          <span ref={textRef} className="text txtbottom">
+            Unlock Innovation with AI-Driven Design
+          </span>
         </h1>
       </div>
       <div className="main robot">

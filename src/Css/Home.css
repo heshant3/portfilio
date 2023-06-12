@@ -6,23 +6,15 @@
 
 
 
-.wrapper .demo div {
-	position:absolute;
-	display:inline-block;
-	white-space:nowrap;
-  
-}
-
 
 .wrapper {
-  padding-top: 25px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   height: auto;
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 10px 0px;
+
 }
 
 .wrapper .main {
@@ -34,36 +26,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* background-color: aqua; */
   text-align: left;
-  /* text-align: left;
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;s
-  text-align: left; */
+
 }
 
 .wrapper .robot{
-  /* background-color: aqua; */
   width: 60%;
 }
 
 
 
 .wrapper .main .txtbottom{
-  margin-top: 5px;
+  text-align: left;
   font-size: 17px;
   letter-spacing: 2.5px;
   font-weight: 400;
 }
 
 .wrapper .main .txttop{
+  height: auto;
+  text-align: left;
   font-weight: 600;
-  margin-top: -10px;
   font-size: 50px;
 }
 
-
+.txttopp{
+  text-align: center;
+}
 
 
 .wrapper .main h1 {
@@ -71,10 +60,21 @@
   letter-spacing: -2px;
   overflow: hidden;
   color: #0d0d0d;
-  margin-left: 100px;
+  padding-left: 100px;
+}
+
+.wrapper .main h2 {
+
+  overflow: hidden;
+
 }
 
 
+
+.wrapper .main .txttopp{
+  overflow: hidden;
+  padding-left: 100px;
+}
 
 
 .wrapper .main h1 span {
@@ -89,20 +89,26 @@
   overflow:hidden;
 }
 
-@media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
 
   .wrapper {
+    flex-wrap: wrap;
     gap: 0px;
     padding-top: 60px;
   }
 
   .wrapper .main {
+    display: flex;
     margin-top: -60px;
     height: 55svh;
+    width: 600px;
     justify-content: center;
     align-items:center;
     text-align: center;
   }
+
+
+  
 
   .wrapper  .robot{
     padding-top: -10px;
@@ -118,24 +124,23 @@
   }
   .wrapper .main .txttop{
 
-    font-size: 40px;
+    font-size: 10vw;
 
   }
 
 
   .wrapper .main .txtbottom {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     letter-spacing: 1.1px;
-    font-size: 15px;
-    margin-left: -305px;
+    font-size: 4vw;
   }
 
-  .wrapper .main .txtbottom .txttop1{
-    margin-left: 19px;
-  }
-
+  
   .wrapper .main h1 {
     letter-spacing: -2px;
-    margin-left: 10px;
+    padding-left: 0;
   }
   
 
@@ -144,19 +149,22 @@
 
 
 
-@media only screen and (min-width: 610px) and (max-width: 900px)  {
+@media only screen and (min-width: 610px) and (max-width: 1025px)  {
 
   .wrapper {
+    flex-wrap: wrap;
     gap: 0px;
-    padding-top: 60px;
+    padding-top: 0;
   }
 
   .wrapper .main {
-    margin-top: -60px;
-    height: 55svh;
+    display: flex;
+    margin-top: 0;
+    height: 30svh;
     justify-content: center;
     align-items:center;
     text-align: center;
+
   }
 
   .wrapper  .robot{
@@ -167,31 +175,25 @@
   }
 
   .wrapper  .txt{
-    padding-top: 60px;
-    height: 40svh;
+    padding-top: 0;
 
   }
 
   .wrapper .main .txttop{
-    margin-top: 6px;
-    font-size: 55px;
+    font-size: 6vw;
     letter-spacing: 2.5px;
   }
 
   
 
-  .wrapper .main .txtbottom .txttop1{
-    margin-left: 25px; 
-  }
-
   .wrapper .main .txtbottom {
     letter-spacing: 1.1px;
-    font-size: 25px;
-    margin-left: -500px; 
+    font-size: 3vw;
+ 
   }
   .wrapper .main h1 {
     letter-spacing: -2px;
-    margin-left: 10px;
+    padding-left: 0;
   }
   
 
@@ -200,4 +202,23 @@
 
 
 
+/* @media only screen and (min-width: 1026px) and (max-width: 1490px)  {
 
+
+
+
+  .wrapper .main {
+
+    width: 40svh;
+    background-color: aqua;
+
+  }
+
+  .wrapper  .robot{
+    width: 60svh;
+
+
+
+  }
+
+} */

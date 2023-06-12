@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height as needed */
+    min-height: 100dvh;
   }
   
   .loading-screen {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 200px;
   }
   

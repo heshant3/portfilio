@@ -3,18 +3,19 @@
 
 .navbar  {
   -webkit-tap-highlight-color: transparent;
-  display:flexbox;
-  justify-content: center;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
   z-index: 3;
   position: fixed;
-  position: fixed;
   bottom: 0;
   left: 50%;
+  width: 50%;
   transform: translateX(-50%);
   width: 100%;
   bottom: 0.2px;
-  height: 2.4rem;
+  height: 4rem;
 }
 
 .navbar .listItem.pinkk {
@@ -28,7 +29,7 @@
   font-size: 1rem;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  margin: 0 70px;
+  margin: 0 10vw;
   transition: transform 0.2s;
 }
 
@@ -52,7 +53,7 @@
 
 @media screen and (max-width: 576px) {
   .navbar .listItem {
-    margin: 0 40px;
+    margin: 0 10vw;
     
   }
 

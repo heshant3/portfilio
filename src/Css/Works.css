@@ -37,7 +37,7 @@ display:flexbox;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100dvh;
+  min-height: 100dvh;
   width: 50%;
   background-color: #edecec;
   float: left;

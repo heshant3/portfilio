@@ -10,11 +10,8 @@ import About from "./Component/About";
 import Works from "./Component/Works";
 import List from "./Component/List";
 import Error from "./Component/Error";
-import CustomCursor from "./Component/CustomCursor";
 import "./Css/App.css";
 import ScrollToTop from "./Component/ScrollToTop";
-import { CSSTransition } from "react-transition-group";
-import { Power3, gsap } from "gsap";
 import LoadingScreen from "./Component/LoadingScreen";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
@@ -24,9 +21,7 @@ ReactGA.initialize("G-PXNJ9MTLPS");
 function App() {
   const location = useLocation();
 
-  useEffect(() => {
-    ReactGA.pageview(location.pathname + location.search);
-  }, [location]);
+  useEffect(() => {}, [location]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

@@ -1,10 +1,10 @@
 import "../Css/About.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef, useEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 import Lottie from "react-lottie";
 import animationData from "../Lotties/Developer.json";
-import animationData2 from "../Lotties/Work.json";
+import animationData2 from "../Lotties/Works-1.json";
 import UseAnimations from "react-useanimations";
 import linkedin from "react-useanimations/lib/linkedin";
 import github from "react-useanimations/lib/github";
@@ -212,27 +212,27 @@ export default function Home() {
 
   return (
     <div className="mainAbout">
+      <h1 className="txt">
+        {" "}
+        Hello there , <br />{" "}
+        <span className="maintxt">I'm Heshan Tharindu</span>{" "}
+      </h1>
       <div className="about">
         <div className="aboutiteam lottie1">
           <Lottie options={defaultOptions} isClickToPauseDisabled={true} />
         </div>
         <div className="aboutiteam content">
-          <h1 className="txt">
-            {" "}
-            Hello there , <br />{" "}
-            <span className="maintxt">I'm Heshan Tharindu</span>{" "}
-            <div className="lineSP"></div>
-          </h1>
           <p className="abtxt">
             I am a passionate <span className="cmp"> UI/UX Engineer</span> with
             a degree in Information and Communication Technology{" "}
             <span className="cmp">(BICT(Hons))</span> from Rajarata University
-            of Sri Lanka. With over <span className="cmp">2 years</span> of
+            of Sri Lanka, backed by over <span className="cmp">1 year</span> of
             experience. <br />
             <br /> I am dedicated to continuously expanding my knowledge and
-            expertise in this field. I am driven by a strong desire to create
-            outstanding user experiences and am always seeking new opportunities
-            for growth and learning.
+            expertise in UI/UX design, with a strong focus on creating
+            outstanding user experiences. I actively utilize AI tools and
+            methodologies to develop innovative UI/UX solutions that optimize
+            interactions and deliver personalized experiences.
           </p>
         </div>
       </div>

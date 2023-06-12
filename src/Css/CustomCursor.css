@@ -1,6 +1,6 @@
 /* :root {
-  --color: 18, 18, 18;
-  --cursor-size: 8px;
+  --color: 255, 162, 162;
+  --cursor-size: 20px;
 }
 
 .custom-cursor {
@@ -9,12 +9,10 @@
 
 
 * {
-  cursor:pointer ;
+  cursor:none ;
 }
 
-body {
-  overflow:scroll;
-}
+
 
 .custom-cursor {
   
