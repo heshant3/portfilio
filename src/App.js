@@ -14,9 +14,6 @@ import "./Css/App.css";
 import ScrollToTop from "./Component/ScrollToTop";
 import LoadingScreen from "./Component/LoadingScreen";
 import { Helmet } from "react-helmet";
-import ReactGA from "react-ga";
-
-ReactGA.initialize("G-PXNJ9MTLPS");
 
 function App() {
   const location = useLocation();
