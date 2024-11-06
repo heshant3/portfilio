@@ -23,14 +23,14 @@ export default function Home() {
   return (
     <div className="wrapper">
       <div className="main txt">
-        <h1 className="txttop">
+        <h1 className="txttop2">
           <span ref={textRef} className="text ">
             Hi There,
           </span>
         </h1>
         <h1 className="txttop">
           <span ref={textRef} className="text txttop rp1">
-            I'm a UI/UX Engineer
+            I'm a front-end developer
           </span>
         </h1>
 

@@ -1,8 +1,5 @@
 {
   "projects": {
-    "default": "htk-portfolio-web",
-    "htk-portfolio-web": "htk-portfolio-web"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "htk-portfolio-web"
+  }
 }

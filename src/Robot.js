@@ -122,7 +122,8 @@ export function Model(props) {
                 position={[-0.09, 8.38, -1.05]}
                 scale={[2.87, 2.21, 2.87]}
                 // transmission={1}
-                material-roughness={0.13}
+                material-transparent={true}
+               material-opacity={0.8} 
               />
               <mesh
                 name="Head"

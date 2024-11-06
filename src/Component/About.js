@@ -223,8 +223,8 @@ export default function Home() {
         </div>
         <div className="aboutiteam content">
           <p className="abtxt">
-            I am a passionate <span className="cmp"> UI/UX Engineer</span> with
-            a degree in Information and Communication Technology{" "}
+            I am a passionate <span className="cmp"> Front-End Developer</span>{" "}
+            with a degree in Information and Communication Technology{" "}
             <span className="cmp">(BICT(Hons))</span> from Rajarata University
             of Sri Lanka, backed by over <span className="cmp">1 year</span> of
             experience. <br />
@@ -244,7 +244,7 @@ export default function Home() {
         <div className="expwaper">
           <div className="expitem ">
             <h3 className="exp2">
-              HELAMID LLC - <span>UI/UX Engineer | 2023 - Present</span>
+              HELAMID LLC - <span>Front-End Developer | 2023 - Present</span>
             </h3>
 
             <h3 className="exp3">
@@ -386,9 +386,8 @@ export default function Home() {
             />
           </a>
         </div>
-
         <div className="botto">
-          <p>© 2023 heshan tharindu</p>
+          <p>© {new Date().getFullYear()} Heshan Tharindu</p>
         </div>
       </div>
     </div>

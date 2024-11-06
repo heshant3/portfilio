@@ -4,9 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
-
 .wrapper {
   display: flex;
   flex-wrap: nowrap;
@@ -14,7 +11,6 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
 .wrapper .main {
@@ -27,33 +23,36 @@
   justify-content: center;
   align-items: flex-start;
   text-align: left;
-
 }
 
-.wrapper .robot{
+.wrapper .robot {
   width: 60%;
 }
 
-
-
-.wrapper .main .txtbottom{
+.wrapper .main .txtbottom {
   text-align: left;
   font-size: 17px;
   letter-spacing: 2.5px;
   font-weight: 400;
 }
 
-.wrapper .main .txttop{
+.wrapper .main .txttop {
+  height: auto;
+  text-align: left;
+  font-weight: 600;
+  font-size: 38px;
+}
+
+.wrapper .main .txttop2 {
   height: auto;
   text-align: left;
   font-weight: 600;
   font-size: 50px;
 }
 
-.txttopp{
+.txttopp {
   text-align: center;
 }
-
 
 .wrapper .main h1 {
   /* font-size: 40px; */
@@ -64,18 +63,18 @@
 }
 
 .wrapper .main h2 {
-
   overflow: hidden;
-
 }
 
-
-
-.wrapper .main .txttopp{
+.wrapper .main .txttopp {
   overflow: hidden;
   padding-left: 100px;
 }
 
+.wrapper .main .txttopp2 {
+  overflow: hidden;
+  padding-left: 100px;
+}
 
 .wrapper .main h1 span {
   display: inline-block;
@@ -83,14 +82,12 @@
   line-height: 1;
 }
 
-
 .dropping-texts {
-  height:50px;
-  overflow:hidden;
+  height: 50px;
+  overflow: hidden;
 }
 
-  @media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 600px) {
   .wrapper {
     flex-wrap: wrap;
     gap: 0px;
@@ -103,31 +100,27 @@
     height: 55svh;
     width: 600px;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     text-align: center;
   }
 
-
-  
-
-  .wrapper  .robot{
+  .wrapper .robot {
     padding-top: -10px;
     width: 100%;
     height: 65svh;
-
   }
 
-  .wrapper  .txt{
+  .wrapper .txt {
     padding-top: 60px;
     height: 40svh;
-
   }
-  .wrapper .main .txttop{
-
-    font-size: 10vw;
-
+  .wrapper .main .txttop {
+    font-size: 7vw;
   }
 
+  .wrapper .main .txttop2 {
+    font-size: 8vw;
+  }
 
   .wrapper .main .txtbottom {
     justify-content: center;
@@ -137,20 +130,13 @@
     font-size: 4vw;
   }
 
-  
   .wrapper .main h1 {
     letter-spacing: -2px;
     padding-left: 0;
   }
-  
-
-
 }
 
-
-
-@media only screen and (min-width: 610px) and (max-width: 1025px)  {
-
+@media only screen and (min-width: 610px) and (max-width: 1025px) {
   .wrapper {
     flex-wrap: wrap;
     gap: 0px;
@@ -162,45 +148,39 @@
     margin-top: 0;
     height: 30svh;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     text-align: center;
-
   }
 
-  .wrapper  .robot{
+  .wrapper .robot {
     width: 100%;
     padding-top: -10px;
     height: 65svh;
-
   }
 
-  .wrapper  .txt{
+  .wrapper .txt {
     padding-top: 0;
-
   }
 
-  .wrapper .main .txttop{
-    font-size: 6vw;
+  .wrapper .main .txttop {
+    font-size: 5vw;
     letter-spacing: 2.5px;
   }
 
-  
+  .wrapper .main .txttop2 {
+    font-size: 10vw;
+    letter-spacing: 2.5px;
+  }
 
   .wrapper .main .txtbottom {
     letter-spacing: 1.1px;
     font-size: 3vw;
- 
   }
   .wrapper .main h1 {
     letter-spacing: -2px;
     padding-left: 0;
   }
-  
-
-
 }
-
-
 
 /* @media only screen and (min-width: 1026px) and (max-width: 1490px)  {
 

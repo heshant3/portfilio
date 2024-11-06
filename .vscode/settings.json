@@ -1,5 +1,6 @@
 {
-    "cSpell.enableFiletypes": [
-        "perl"
-    ]
+  "cSpell.enableFiletypes": ["perl"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontWeight": "normal"
 }
