@@ -244,7 +244,7 @@ export default function Home() {
         <div className="expwaper">
           <div className="expitem ">
             <h3 className="exp2">
-              HELAMID LLC - <span>UI/UX Engineer | 2022 - Present</span>
+              HELAMID LLC - <span>UI/UX Engineer | 2023 - Present</span>
             </h3>
 
             <h3 className="exp3">
