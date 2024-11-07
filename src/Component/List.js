@@ -16,12 +16,6 @@ const List = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    if (activeLink === "works") {
-      localStorage.setItem("activeLink", "works");
-    }
-  }, [activeLink]);
-
   return (
     <div className="navbar">
       <nav>
@@ -44,7 +38,7 @@ const List = () => {
 
         <NavLink
           className={`listItem ${
-            activeLink === "works" || activeLink === "about" ? "pinkk" : ""
+            activeLink === "about" || activeLink === "works" ? "pinkk" : ""
           }`}
           to="/about"
           onClick={() => handleNavLinkClick("about")}

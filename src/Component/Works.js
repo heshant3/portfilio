@@ -63,7 +63,7 @@ const Works = () => {
 
   return (
     <div className="containerr">
-      <a href="https://blog.heshan.dev/tag/projects" rel="noopener noreferrer">
+      <a href="https://blog.heshan.dev" rel="noopener noreferrer">
         <div className="left">
           <p className="lefttxt">
             Project
