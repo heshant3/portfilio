@@ -152,7 +152,7 @@ export function Model(props) {
             </group>
           </group>
         </group>
-      </group>{" "}
+      </group>
     </group>
   );
 }

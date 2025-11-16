@@ -20,12 +20,6 @@ export default function Home() {
     const timeline = gsap.timeline();
 
     timeline
-      .from(".greeting", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power3.out",
-      })
       .from(
         ".role-container",
         {

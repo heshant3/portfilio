@@ -188,15 +188,6 @@ body {
    SECTIONS
 ======================================== */
 
-section {
-  padding: var(--spacing-xl) 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
 section.animate-in {
   opacity: 1;
   transform: translateY(0);
@@ -248,7 +239,6 @@ section.animate-in .section-header {
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
   transition: all 0.3s ease;
   opacity: 0;
