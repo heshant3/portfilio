@@ -10,7 +10,6 @@ export function Model(props) {
   const dd = useRef();
   const head = useRef();
   const group = useRef();
-  const robot = useRef();
   const tl = useRef();
   const { nodes, materials, animations } = useGLTF("/Robotk.gltf");
   const { actions } = useAnimations(animations, group);
@@ -77,7 +76,6 @@ export function Model(props) {
   });
 
   useFrame((state, delta) => {
-    const t = (1 + Math.sin(state.clock.elapsedTime * 2)) / 2;
     easing.dampE(
       head.current.rotation,
       [0, state.pointer.x * (state.camera.position.z > 1 ? 0.6 : -1), 0],
@@ -96,10 +94,12 @@ export function Model(props) {
     // // action.clampWhenFinished = true;
     // action.timeScale = 1;
     // // Play the animation
-    actions.blink.play();
+    if (actions?.blink) {
+      actions.blink.play();
+    }
     // actions.middle.play();
     // action2.play();
-  }, []);
+  }, [actions]);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -123,7 +123,7 @@ export function Model(props) {
                 scale={[2.87, 2.21, 2.87]}
                 // transmission={1}
                 material-transparent={true}
-               material-opacity={0.8} 
+                material-opacity={0.8}
               />
               <mesh
                 name="Head"

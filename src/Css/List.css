@@ -1,66 +1,192 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-.navbar {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 3;
+/* Minimalist Bottom Navigator */
+.modern-navbar {
   position: fixed;
   bottom: 0;
   left: 50%;
-  width: 50%;
   transform: translateX(-50%);
+  z-index: 1000;
+  padding-bottom: 20px;
+  pointer-events: none;
   width: 100%;
-  bottom: 0.2px;
-  height: 4rem;
+  max-width: 500px;
 }
 
-.navbar .listItem.pinkk {
-  color: rgb(255, 254, 255);
+.nav-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 280px;
+  margin: 0 auto;
+  padding: 0;
+  pointer-events: all;
 }
 
-.navbar .listItem {
-  text-align: center;
-  color: rgb(0, 0, 0);
+.nav-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Animated Bottom Line Indicator */
+.nav-indicator-line {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #000000 0%, #333333 100%);
+  border-radius: 3px 3px 0 0;
+  transition: left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 2;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.333%;
+  padding: 18px 0;
   text-decoration: none;
-  font-size: 1rem;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  margin: 0 10vw;
-  transition: transform 0.2s;
+  color: #9ca3af;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.navbar .listItem.active {
-  color: rgb(255, 255, 255);
-  background-color: #090909;
-  border-radius: 20px 20px 0px 0px;
-  padding-bottom: 60px;
-  padding-top: 15px;
-  padding-left: 6px;
-  padding-right: 6px;
-  transition: padding-top 0.4s ease 0s;
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Active State */
+.nav-item.nav-active {
+  color: #000000;
+}
+
+.nav-item.nav-active .nav-icon {
+  transform: scale(1.1);
+}
+
+/* Hover Effect */
+.nav-item:hover:not(.nav-active) {
+  color: #6b7280;
+}
+
+.nav-item:hover:not(.nav-active) .nav-icon {
+  transform: scale(1.05);
+}
+
+/* Click Animation */
+.nav-item:active {
+  transform: scale(0.95);
+}
+
+/* Smooth Icon Color Transition */
+.nav-item svg {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item.nav-active svg {
+  color: #000000;
+}
+
+/* Responsive Design */
 @media screen and (max-width: 576px) {
-  .navbar .listItem {
-    margin: 0 10vw;
+  .modern-navbar {
+    padding-bottom: 12px;
+    max-width: 100%;
   }
 
-  .navbar .listItem:hover {
-    color: rgb(255, 255, 255);
+  .nav-container {
+    width: 90%;
+    max-width: 320px;
   }
 
-  .navbar .active {
-    color: rgb(255, 255, 255);
-    background-color: #090909;
-    border-radius: 20px 20px 0px 0px;
-    padding-bottom: 60px;
-    padding-top: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
-    transition: padding-top 0.4s ease 0s;
+  .nav-item {
+    padding: 14px 0;
   }
+
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-indicator-line {
+    bottom: 6px;
+    height: 2.5px;
+  }
+
+  .nav-background {
+    border-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .nav-container {
+    width: 300px;
+  }
+
+  .modern-navbar {
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .modern-navbar {
+    padding-bottom: 24px;
+  }
+}
+
+/* Mobile landscape optimization */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+  .modern-navbar {
+    padding-bottom: 8px;
+  }
+
+  .nav-item {
+    padding: 12px 0;
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Accessibility */
+.nav-item:focus {
+  outline: 2px solid #000000;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.nav-item:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Performance Optimization */
+.nav-container,
+.nav-item,
+.nav-icon,
+.nav-indicator-line {
+  will-change: transform;
+}
+
+/* Legacy styles cleanup */
+.navbar {
+  display: none;
 }
