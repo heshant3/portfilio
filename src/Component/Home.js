@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Environment, ContactShadows } from "@react-three/drei";
+import { ContactShadows } from "@react-three/drei";
 import { Model } from "../Robot";
 import { Canvas } from "@react-three/fiber";
 import { gsap } from "gsap";
@@ -112,13 +112,22 @@ export default function Home() {
       </div>
       <div className="main robot">
         <Canvas camera={{ position: [0, 10, 25], fov: 40 }} intensity={0.5}>
-          <ambientLight distance={40} position={[70, 40, 10]} intensity={0.2} />
+          {/* Custom lights keep the scene lit without remote HDR fetches */}
+          <ambientLight
+            distance={40}
+            position={[70, 40, 10]}
+            intensity={0.35}
+          />
+          <directionalLight
+            position={[15, 25, 10]}
+            intensity={0.8}
+            castShadow
+          />
           <Model
             position={[0, -5.2, 0]}
             rotation={[0.1, -0.05, 0]}
             scale={0.9}
           />
-          <Environment preset="city" />
           <ContactShadows
             position={[0, -5.2, 0]}
             scale={30}

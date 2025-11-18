@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "../Css/Works.module.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
+// Image component with skeleton loading
+const ImageWithSkeleton = ({ src, alt }) => {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  return (
+    <div className={styles.imageWrapper}>
+      {!loaded && !error && <div className={styles.skeleton} />}
+      <img
+        src={src}
+        alt={alt}
+        onLoad={() => setLoaded(true)}
+        onError={() => setError(true)}
+        style={{ opacity: loaded ? 1 : 0 }}
+        className={styles.image}
+      />
+    </div>
+  );
+};
+
 const Works = () => {
+  const projectsRef = useRef([]);
+  const designsRef = useRef([]);
+  const projectsTitleRef = useRef(null);
+  const designsTitleRef = useRef(null);
+
   const projects = [
     {
       id: 1,
       title: "Bedqo - Hotel Booking Platform",
       image:
-        "https://cdn.hashnode.com/res/hashnode/image/upload/v1763310748598/085b1fef-3a40-453b-9d45-db06bc24e03d.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/b8c8c6238819331.691c818b8a747.png",
       shortDesc: "Bedqo",
       fullDesc:
         "Bedqo — AI-driven full-stack platform built in 3 months, powering web & mobile hotel experiences.",
@@ -17,7 +46,7 @@ const Works = () => {
       id: 2,
       title: "AI Wireless Stethoscope",
       image:
-        "https://cdn.hashnode.com/res/hashnode/image/upload/v1684138013377/efdac119-839b-4fdf-b812-cc11ee8ebd63.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/fs/ea0910156442979.63678489dafe1.gif",
       shortDesc: "Artificial Intelligence Wireless Stethoscope",
       fullDesc:
         "The human respiratory system for sound analysis and diagnosis detection using a wireless stethoscope with machine learning.",
@@ -27,7 +56,7 @@ const Works = () => {
       id: 3,
       title: "Modern Alcohol Detector",
       image:
-        "https://cdn.hashnode.com/res/hashnode/image/upload/v1710224647836/b8b84f9d-4d6f-47af-98e1-b973396f20f4.jpeg?auto=compress,format&format=webp",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/disp/0d2e86101257973.5f1a94405270b.jpg",
       shortDesc: "Modern Alcohol Detector",
       fullDesc:
         "Developed a portable alcohol detector with LED, LCD, and printer; won national and international awards.",
@@ -37,7 +66,7 @@ const Works = () => {
       id: 4,
       title: "RFID Class Attended System",
       image:
-        "https://cdn.hashnode.com/res/hashnode/image/upload/v1686200388885/ce84a7c9-2c2d-47c0-9259-6a63c13ae836.png?auto=compress,format&format=webp",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/disp/7f54e5101257545.5f1a91e853c8b.jpg",
       shortDesc: "RFID Class Attended System",
       fullDesc:
         "Built Likemart Smart Class System using RFID, Arduino, React, PHP, and MySQL to automate attendance, payments, and communication—revolutionizing classroom management and learning efficiency.",
@@ -47,7 +76,7 @@ const Works = () => {
       id: 5,
       title: "Patient Management System",
       image:
-        "https://cdn.hashnode.com/res/hashnode/image/upload/v1710265310246/45898418-ef2e-4c44-9cbf-c335bfa73148.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/source/077c96213371683.6745806d47b4b.png",
       shortDesc: "Patient Management System",
       fullDesc:
         "Developed a Firebase-powered Patient Management System with React Native and web apps for sociological doctors to schedule, monitor, and manage patients in real time, enhancing care efficiency and data security.",
@@ -57,7 +86,7 @@ const Works = () => {
       id: 6,
       title: "Smart DUI Penalty System",
       image:
-        "https://cdn.hashnode.com/res/hashnode/image/upload/v1710262605805/e27327ba-438c-4d79-960c-75da1920628b.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/max_632_webp/17adf8192367033.65dacfe4d68ba.jpg",
       shortDesc: "Smart DUI Penalty System",
       fullDesc:
         "Developed a Smart Driving Under the Influence (DUI) Penalty System using IoT, React Native, and Firebase to detect alcohol levels, scan driver QR codes, and record penalties in real time—enhancing road safety and drunk driving enforcement in Sri Lanka.",
@@ -123,16 +152,93 @@ const Works = () => {
     },
   ];
 
+  useEffect(() => {
+    // Animate section titles
+    if (projectsTitleRef.current) {
+      gsap.from(projectsTitleRef.current, {
+        scrollTrigger: {
+          trigger: projectsTitleRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out",
+      });
+    }
+
+    if (designsTitleRef.current) {
+      gsap.from(designsTitleRef.current, {
+        scrollTrigger: {
+          trigger: designsTitleRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out",
+      });
+    }
+
+    // Animate project cards
+    projectsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          y: 60,
+          duration: 0.8,
+          delay: index * 0.1,
+          ease: "power3.out",
+        });
+      }
+    });
+
+    // Animate design cards
+    designsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          y: 60,
+          duration: 0.8,
+          delay: index * 0.1,
+          ease: "power3.out",
+        });
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className={styles.worksContainer}>
       {/* Projects Section */}
       <section className={styles.projectsSection}>
-        <h1 className={styles.sectionTitle}>My Projects</h1>
+        <h1 ref={projectsTitleRef} className={styles.sectionTitle}>
+          My Projects
+        </h1>
         <div className={styles.cardsGrid}>
-          {projects.map((project) => (
-            <div key={project.id} className={styles.card}>
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              ref={(el) => (projectsRef.current[index] = el)}
+              className={styles.card}
+            >
               <div className={styles.cardImage}>
-                <img src={project.image} alt={project.title} />
+                <ImageWithSkeleton src={project.image} alt={project.title} />
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
@@ -165,12 +271,18 @@ const Works = () => {
 
       {/* Designs Section */}
       <section className={styles.designsSection}>
-        <h1 className={styles.sectionTitle}>My Designs</h1>
+        <h1 ref={designsTitleRef} className={styles.sectionTitle}>
+          My Designs
+        </h1>
         <div className={styles.cardsGrid}>
-          {designs.map((design) => (
-            <div key={design.id} className={styles.card}>
+          {designs.map((design, index) => (
+            <div
+              key={design.id}
+              ref={(el) => (designsRef.current[index] = el)}
+              className={styles.card}
+            >
               <div className={styles.cardImage}>
-                <img src={design.image} alt={design.title} />
+                <ImageWithSkeleton src={design.image} alt={design.title} />
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{design.title}</h3>

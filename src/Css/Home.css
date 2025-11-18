@@ -99,11 +99,10 @@
 }
 
 .role-text {
-  font-size: clamp(1rem, 2.5vw, 3rem);
+  font-size: clamp(1.6rem, 2.5vw, 3rem);
   font-weight: 700;
   color: #000;
   margin: 0;
-  letter-spacing: -1.5px;
   line-height: 1.2;
   min-height: 1.2em;
   display: flex;
