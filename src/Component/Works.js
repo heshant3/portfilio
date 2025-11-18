@@ -228,7 +228,7 @@ const Works = () => {
       {/* Projects Section */}
       <section className={styles.projectsSection}>
         <h1 ref={projectsTitleRef} className={styles.sectionTitle}>
-          My Projects
+          Work Showcase
         </h1>
         <div className={styles.cardsGrid}>
           {projects.map((project, index) => (
@@ -250,7 +250,7 @@ const Works = () => {
                     rel="noopener noreferrer"
                     className={styles.visitBtn}
                   >
-                    Visit Project →
+                    Check It Out →
                   </a>
                 </div>
               </div>
@@ -264,7 +264,7 @@ const Works = () => {
             rel="noopener noreferrer"
             className={styles.seeMoreBtn}
           >
-            See More Projects on Blog
+            Explore More
           </a>
         </div>
       </section>
@@ -272,7 +272,7 @@ const Works = () => {
       {/* Designs Section */}
       <section className={styles.designsSection}>
         <h1 ref={designsTitleRef} className={styles.sectionTitle}>
-          My Designs
+          Design Showcase
         </h1>
         <div className={styles.cardsGrid}>
           {designs.map((design, index) => (
@@ -294,7 +294,7 @@ const Works = () => {
                     rel="noopener noreferrer"
                     className={styles.visitBtn}
                   >
-                    View on Behance →
+                    Preview Design →
                   </a>
                 </div>
               </div>
@@ -308,7 +308,7 @@ const Works = () => {
             rel="noopener noreferrer"
             className={styles.seeMoreBtn}
           >
-            See More Designs on Behance
+            Explore More
           </a>
         </div>
       </section>

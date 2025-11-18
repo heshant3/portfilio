@@ -1,9 +1,10 @@
-import { useRef, useEffect, useLayoutEffect } from "react";
+import { useRef, useEffect, useLayoutEffect, useMemo } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { LoopOnce } from "three";
 import { useFrame } from "@react-three/fiber";
 import { easing } from "maath";
 import { gsap } from "gsap";
+import { MeshPhysicalMaterial, Color } from "three";
 
 export function Model(props) {
   const robotRef = useRef();
@@ -11,8 +12,25 @@ export function Model(props) {
   const head = useRef();
   const group = useRef();
   const tl = useRef();
-  const { nodes, materials, animations } = useGLTF("/Robotk.gltf");
+  const { nodes, materials, animations } = useGLTF("/Robotk-optimized.gltf");
   const { actions } = useAnimations(animations, group);
+
+  const glassMaterial = useMemo(
+    () =>
+      new MeshPhysicalMaterial({
+        transmission: 1,
+        opacity: 0.8,
+        metalness: 0,
+        roughness: 0,
+        ior: 1.45,
+        thickness: 0.1,
+        envMapIntensity: 1,
+        clearcoat: 1,
+        clearcoatRoughness: 0,
+        color: new Color(0.2, 0.2, 0.2),
+      }),
+    []
+  );
 
   const handleMouseEnter = () => {
     actions.middle.play().reset().setLoop(LoopOnce, 1).clampWhenFinished = true;
@@ -118,12 +136,9 @@ export function Model(props) {
                 castShadow
                 receiveShadow
                 geometry={nodes.Frame.geometry}
-                material={materials["Material.001"]}
+                material={glassMaterial}
                 position={[-0.09, 8.38, -1.05]}
                 scale={[2.87, 2.21, 2.87]}
-                // transmission={1}
-                material-transparent={true}
-                material-opacity={0.8}
               />
               <mesh
                 name="Head"

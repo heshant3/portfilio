@@ -20,6 +20,7 @@
     "gsap-trial": "^3.11.5",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.11.0",
+    "lucide-react": "^0.554.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",
