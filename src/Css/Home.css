@@ -112,8 +112,7 @@
 }
 
 .cursor {
-  display: inline-block;
-  width: 3px;
+  width: 0px;
   height: 1em;
   background-color: #000;
   animation: blink 1s step-end infinite;

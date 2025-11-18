@@ -12,7 +12,12 @@ export default function Home() {
   const [displayedRole, setDisplayedRole] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const roles = useMemo(
-    () => ["Full Stack Developer", "UI/UX Designer", "AI Enthusiast"],
+    () => [
+      "Full Stack Developer",
+      "Creative Designer",
+      "AI Enthusiast",
+      "Tech Innovator",
+    ],
     []
   );
 

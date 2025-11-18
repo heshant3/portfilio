@@ -5,126 +5,121 @@ const Works = () => {
   const projects = [
     {
       id: 1,
-      title: "Blog Platform",
+      title: "Bedqo - Hotel Booking Platform",
       image:
-        "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop",
-      shortDesc: "A modern blogging platform built with React",
+        "https://cdn.hashnode.com/res/hashnode/image/upload/v1763310748598/085b1fef-3a40-453b-9d45-db06bc24e03d.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      shortDesc: "Bedqo",
       fullDesc:
-        "A comprehensive blogging platform featuring markdown support, responsive design, and real-time updates. Built with React and Firebase for seamless user experience.",
-      link: "https://blog.heshan.dev",
+        "Bedqo — AI-driven full-stack platform built in 3 months, powering web & mobile hotel experiences.",
+      link: "https://blog.heshan.dev/bedqo",
     },
     {
       id: 2,
-      title: "Portfolio Website",
+      title: "AI Wireless Stethoscope",
       image:
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=300&fit=crop",
-      shortDesc: "Personal portfolio showcasing my work",
+        "https://cdn.hashnode.com/res/hashnode/image/upload/v1684138013377/efdac119-839b-4fdf-b812-cc11ee8ebd63.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      shortDesc: "Artificial Intelligence Wireless Stethoscope",
       fullDesc:
-        "An interactive portfolio website featuring smooth animations, custom cursor effects, and a modern design approach to showcase my development skills.",
-      link: "https://heshan.dev",
+        "The human respiratory system for sound analysis and diagnosis detection using a wireless stethoscope with machine learning.",
+      link: "https://blog.heshan.dev/artificial-intelligence-wireless-stethoscope",
     },
     {
       id: 3,
-      title: "E-Commerce App",
+      title: "Modern Alcohol Detector",
       image:
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=400&h=300&fit=crop",
-      shortDesc: "Full-stack e-commerce solution",
+        "https://cdn.hashnode.com/res/hashnode/image/upload/v1710224647836/b8b84f9d-4d6f-47af-98e1-b973396f20f4.jpeg?auto=compress,format&format=webp",
+      shortDesc: "Modern Alcohol Detector",
       fullDesc:
-        "A complete e-commerce platform with shopping cart, payment integration, user authentication, and admin panel for inventory management.",
-      link: "https://github.com/heshant3",
+        "Developed a portable alcohol detector with LED, LCD, and printer; won national and international awards.",
+      link: "https://blog.heshan.dev/modern-alcohol-detector",
     },
     {
       id: 4,
-      title: "Task Manager",
+      title: "RFID Class Attended System",
       image:
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop",
-      shortDesc: "Collaborative task management tool",
+        "https://cdn.hashnode.com/res/hashnode/image/upload/v1686200388885/ce84a7c9-2c2d-47c0-9259-6a63c13ae836.png?auto=compress,format&format=webp",
+      shortDesc: "RFID Class Attended System",
       fullDesc:
-        "A collaborative task management application with team features, deadline tracking, and productivity analytics.",
-      link: "https://github.com/heshant3",
+        "Built Likemart Smart Class System using RFID, Arduino, React, PHP, and MySQL to automate attendance, payments, and communication—revolutionizing classroom management and learning efficiency.",
+      link: "https://blog.heshan.dev/rfid-class-attended-system",
     },
     {
       id: 5,
-      title: "Weather Dashboard",
+      title: "Patient Management System",
       image:
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=300&fit=crop",
-      shortDesc: "Real-time weather tracking application",
+        "https://cdn.hashnode.com/res/hashnode/image/upload/v1710265310246/45898418-ef2e-4c44-9cbf-c335bfa73148.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      shortDesc: "Patient Management System",
       fullDesc:
-        "A real-time weather dashboard with forecasts, interactive maps, and location-based weather alerts.",
-      link: "https://github.com/heshant3",
+        "Developed a Firebase-powered Patient Management System with React Native and web apps for sociological doctors to schedule, monitor, and manage patients in real time, enhancing care efficiency and data security.",
+      link: "https://blog.heshan.dev/patient-management-system-for-sociological-doctors",
     },
     {
       id: 6,
-      title: "Social Network",
+      title: "Smart DUI Penalty System",
       image:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop",
-      shortDesc: "Modern social networking platform",
+        "https://cdn.hashnode.com/res/hashnode/image/upload/v1710262605805/e27327ba-438c-4d79-960c-75da1920628b.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+      shortDesc: "Smart DUI Penalty System",
       fullDesc:
-        "A modern social networking platform with real-time messaging, media sharing, and advanced privacy controls.",
-      link: "https://github.com/heshant3",
+        "Developed a Smart Driving Under the Influence (DUI) Penalty System using IoT, React Native, and Firebase to detect alcohol levels, scan driver QR codes, and record penalties in real time—enhancing road safety and drunk driving enforcement in Sri Lanka.",
+      link: "https://blog.heshan.dev/smart-dui-penalty-system",
     },
   ];
 
   const designs = [
     {
       id: 1,
-      title: "UI/UX Design",
+      title: "Bus Minder App ",
       image:
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop",
-      shortDesc: "Modern interface designs",
-      fullDesc:
-        "Collection of modern UI/UX designs focusing on user experience, accessibility, and visual appeal across various platforms.",
-      link: "https://www.behance.net/heshantharindu",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f93084191811851.65d22473e87b9.png",
+      shortDesc: "Bus Minder Mobile App UI",
+      fullDesc: "Bus Booking Mobile app UI Design with APP design",
+      link: "https://www.behance.net/gallery/191811851/Bus-Minder-IOT-Mobile-App",
     },
     {
       id: 2,
-      title: "Brand Identity",
+      title: "ICart App",
       image:
-        "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=300&fit=crop",
-      shortDesc: "Creative brand designs",
-      fullDesc:
-        "Brand identity projects including logo design, color schemes, typography, and complete brand guidelines for various clients.",
-      link: "https://www.behance.net/heshantharindu",
+        "https://mir-cdn.behance.net/v1/rendition/project_modules/max_632_webp/48b4ec213363445.6745620e7a495.png",
+      shortDesc: "ICart App UI",
+      fullDesc: "ICart app is a Sri Lankan supermarket self-checkout app.",
+      link: "https://www.behance.net/gallery/213363445/ICart-APP",
     },
     {
       id: 3,
-      title: "Mobile App Design",
+      title: "Eco Tracker App",
       image:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
-      shortDesc: "Mobile interface concepts",
-      fullDesc:
-        "Mobile application design concepts featuring intuitive navigation, modern aesthetics, and user-centered design principles.",
-      link: "https://www.behance.net/heshantharindu",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0c79f2191809827.65d21ccda2678.png",
+      shortDesc: "Green House App UI",
+      fullDesc: "Greenhouse IoT mobile app UI design",
+      link: "https://www.behance.net/gallery/191809827/Green-House-IOT-App",
     },
     {
       id: 4,
-      title: "Web Design",
+      title: "Supplement Bottle",
       image:
-        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&h=300&fit=crop",
-      shortDesc: "Responsive web design projects",
-      fullDesc:
-        "Modern web design projects featuring responsive layouts, creative animations, and optimized user experiences.",
-      link: "https://www.behance.net/heshantharindu",
+        "https://mir-s3-cdn-cf.behance.net/projects/404/86d2da176927793.Y3JvcCwxODQyLDE0NDEsNDEsMA.png",
+      shortDesc: "Supplement Bottle",
+      fullDesc: "Realistic Supplement Bottle 3D model and rendering.",
+      link: "https://www.behance.net/gallery/176927793/Supplement-Bottle-mock-up",
     },
     {
       id: 5,
-      title: "Logo Design",
+      title: "Coffee machine",
       image:
-        "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?w=400&h=300&fit=crop",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/180b25176712711.64c9b822d0784.png",
       shortDesc: "Creative logo concepts",
-      fullDesc:
-        "Collection of creative logo designs for various brands, focusing on memorable and impactful visual identities.",
-      link: "https://www.behance.net/heshantharindu",
+      fullDesc: "Realistic Coffee Machine 3D Modeling and Rendering.",
+      link: "https://www.behance.net/gallery/176712711/Realistic-Coffee-machine-rendering",
     },
     {
       id: 6,
-      title: "Typography",
+      title: "Rajarata University Of Sri Lanka",
       image:
-        "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop",
-      shortDesc: "Typography and lettering work",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/disp/60714d151711345.6310b02ae9372.jpg",
+      shortDesc: "Rajarata University Of Sri Lanka",
       fullDesc:
-        "Typography projects showcasing custom fonts, lettering compositions, and creative type treatments.",
-      link: "https://www.behance.net/heshantharindu",
+        "Rajarata University of Sri Lanka Main Building 2D Illustration Design.",
+      link: "https://www.behance.net/gallery/151711345/Rajarata-University-Of-Sri-Lanka",
     },
   ];
 
@@ -155,6 +150,16 @@ const Works = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className={styles.seeMoreContainer}>
+          <a
+            href="https://blog.heshan.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.seeMoreBtn}
+          >
+            See More Projects on Blog
+          </a>
         </div>
       </section>
 
