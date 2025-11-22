@@ -8,6 +8,7 @@ import {
 import Home from "./Component/Home";
 import About from "./Component/About";
 import Works from "./Component/Works";
+import Achievements from "./Component/Achievements";
 import List from "./Component/List";
 import Error from "./Component/Error";
 import "./Css/App.css";
@@ -50,6 +51,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/works" component={Works} />
+              <Route path="/achievements" component={Achievements} />
               <Route path="*" component={Error} />
             </Switch>
           </>

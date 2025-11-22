@@ -9,6 +9,7 @@ import { OrbitControls } from "@react-three/drei";
 
 import "../Css/Home.css";
 import LoadingScreen from "./LoadingScreen";
+import bedqoLogo from "../Image/bedqo_logo.png";
 
 export default function Home() {
   const [displayedRole, setDisplayedRole] = useState("");
@@ -112,6 +113,14 @@ export default function Home() {
 
   return (
     <div className="wrapper">
+      <a
+        href="https://bedqo.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bedqo-logo-link"
+      >
+        <img src={bedqoLogo} alt="Bedqo" className="bedqo-logo" />
+      </a>
       <div className="main txt">
         <div className="text-content">
           <div className="decorative-line"></div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Home, Briefcase, User } from "lucide-react";
+import { Home, Briefcase, User, Award } from "lucide-react";
 import "../Css/List.css";
 
 const List = () => {
@@ -14,6 +14,7 @@ const List = () => {
     if (path === "/") setActiveLink("home");
     else if (path === "/works") setActiveLink("works");
     else if (path === "/about") setActiveLink("about");
+    else if (path === "/achievements") setActiveLink("achievements");
   }, [location]);
 
   const handleNavLinkClick = (link) => {
@@ -76,6 +77,12 @@ const List = () => {
       path: "/works",
       label: "Works",
       icon: <Briefcase size={24} />,
+    },
+    {
+      id: "achievements",
+      path: "/achievements",
+      label: "Achievements",
+      icon: <Award size={24} className="achievement-icon" />,
     },
     {
       id: "about",

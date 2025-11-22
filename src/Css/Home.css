@@ -11,6 +11,27 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+/* Bedqo Logo Link */
+.bedqo-logo-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.bedqo-logo-link:hover {
+  transform: scale(1.05);
+}
+
+.bedqo-logo {
+  width: 50px;
+  height: auto;
+  display: block;
+  cursor: pointer;
 }
 
 .wrapper .main {
@@ -191,6 +212,15 @@
 
 /* Responsive Design */
 @media only screen and (max-width: 600px) {
+  .bedqo-logo-link {
+    top: 15px;
+    right: 15px;
+  }
+
+  .bedqo-logo {
+    width: 40px;
+  }
+
   .wrapper {
     flex-wrap: wrap;
     gap: 0px;

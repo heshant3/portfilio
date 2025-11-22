@@ -62,7 +62,7 @@ export default function Home() {
           <div className="about-card">
             <p className="about-text">
               Passionate <strong>Full-Stack Developer</strong> with{" "}
-              <strong>2.5+ years</strong> of experience in web and mobile
+              <strong>3+ years</strong> of experience in web and mobile
               development. Strong skills in front-end, back-end, and UI/UX
               design, backed by a <strong>BICT (Hons)</strong> degree from
               Rajarata University.
