@@ -29,14 +29,53 @@ const Achievements = () => {
     require.context("../Image/article", false, /\.(webp|jpe?g|JPE?G|PNG)$/)
   );
 
-  // Shuffle images for messy order - using useMemo to keep order consistent
+  // Shuffle images for messy order with better distribution
   const shuffleArray = (array) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    // Separate award and non-award images
+    const awards = array.filter((img) => img.includes("award_"));
+    const others = array.filter((img) => !img.includes("award_"));
+
+    // Shuffle both arrays separately
+    const shuffleArr = (arr) => {
+      const shuffled = [...arr];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+
+    const shuffledAwards = shuffleArr(awards);
+    const shuffledOthers = shuffleArr(others);
+
+    // Interleave them for better distribution
+    const result = [];
+    const ratio = shuffledOthers.length / shuffledAwards.length;
+
+    let awardIndex = 0;
+    let otherIndex = 0;
+
+    while (
+      awardIndex < shuffledAwards.length ||
+      otherIndex < shuffledOthers.length
+    ) {
+      // Add more "others" based on ratio to distribute awards evenly
+      const othersToAdd = Math.ceil(ratio);
+      for (
+        let i = 0;
+        i < othersToAdd && otherIndex < shuffledOthers.length;
+        i++
+      ) {
+        result.push(shuffledOthers[otherIndex++]);
+      }
+
+      // Add one award
+      if (awardIndex < shuffledAwards.length) {
+        result.push(shuffledAwards[awardIndex++]);
+      }
     }
-    return shuffled;
+
+    return result;
   };
 
   const [images] = useState(() => shuffleArray(allImages));
@@ -371,12 +410,15 @@ const Achievements = () => {
 
               if (row !== 0) return null;
 
+              const isAward = img.includes("award_");
+
               return (
                 <div
                   key={`row1-${index}`}
                   className={`grid-item ${
                     hoveredIndex === originalIndex ? "hovered" : ""
                   }`}
+                  data-award={isAward}
                   style={{
                     width: size.width,
                     height: size.height,
@@ -413,12 +455,15 @@ const Achievements = () => {
 
               if (row !== 1) return null;
 
+              const isAward = img.includes("award_");
+
               return (
                 <div
                   key={`row2-${index}`}
                   className={`grid-item ${
                     hoveredIndex === originalIndex ? "hovered" : ""
                   }`}
+                  data-award={isAward}
                   style={{
                     width: size.width,
                     height: size.height,

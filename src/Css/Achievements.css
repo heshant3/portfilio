@@ -107,6 +107,7 @@
   height: 100%;
   justify-content: center;
   will-change: transform;
+  padding: 1em 0;
 }
 
 .messy-grid-row {
@@ -131,6 +132,23 @@
   transform-origin: center;
   margin: -5px;
   border: 1px solid #f0f0f0;
+}
+
+/* Gold background for award images */
+.grid-item[data-award="true"] {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff9e6 0%,
+    #ffd700 40%,
+    #ffb800 70%,
+    #cc8800 100%
+  );
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  border: 1px solid #e6c200;
+}
+
+.grid-item[data-award="true"]:hover {
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
 }
 
 .grid-item:hover {
