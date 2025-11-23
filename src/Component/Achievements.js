@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { X, ZoomIn, ZoomOut } from "lucide-react";
+import { X, ZoomIn, ZoomOut, MoveHorizontal } from "lucide-react";
 import "../Css/Achievements.css";
 
 const Achievements = () => {
@@ -15,11 +15,18 @@ const Achievements = () => {
   const [containerDragStart, setContainerDragStart] = useState(0);
   const scrollContainerRef = useRef(null);
   const scrollPositionRef = useRef(0);
+  const [isTouchDragging, setIsTouchDragging] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const velocityRef = useRef(0);
+  const lastDragTimeRef = useRef(0);
+  const lastDragPosRef = useRef(0);
+  const [showGuide, setShowGuide] = useState(false);
+  const [loadedImages, setLoadedImages] = useState({});
 
   // Import all images from the article folder
   const importAll = (r) => r.keys().map(r);
   const allImages = importAll(
-    require.context("../Image/article", false, /\.(png|jpe?g|JPE?G|PNG)$/)
+    require.context("../Image/article", false, /\.(webp|jpe?g|JPE?G|PNG)$/)
   );
 
   // Shuffle images for messy order - using useMemo to keep order consistent
@@ -76,6 +83,14 @@ const Achievements = () => {
         return prev + diff * 0.1; // Smooth easing
       });
 
+      // Apply inertia/momentum
+      if (Math.abs(velocityRef.current) > 0.1) {
+        scrollPositionRef.current += velocityRef.current;
+        velocityRef.current *= 0.95; // Friction/deceleration
+      } else {
+        velocityRef.current = 0;
+      }
+
       scrollPositionRef.current += scrollSpeed;
       if (scrollPositionRef.current >= container.scrollWidth / 2) {
         scrollPositionRef.current = 0;
@@ -92,6 +107,15 @@ const Achievements = () => {
       }
     };
   }, [scrollSpeed, targetScrollSpeed]);
+
+  // Show guide on mount, hide after 5 seconds
+  useEffect(() => {
+    setShowGuide(true);
+    const timer = setTimeout(() => {
+      setShowGuide(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Handle mouse enter/leave for smooth pause
   const handleMouseEnterGrid = () => {
@@ -127,20 +151,30 @@ const Achievements = () => {
 
   // Handle container drag to scroll
   const handleContainerMouseDown = (e) => {
-    // Only start drag if not clicking on an image
-    if (e.target.closest(".grid-item")) return;
-
     setIsContainerDragging(true);
     setContainerDragStart(e.clientX);
     setTargetScrollSpeed(0); // Pause auto-scroll while dragging
+    lastDragTimeRef.current = Date.now();
+    lastDragPosRef.current = e.clientX;
+    velocityRef.current = 0;
   };
 
   const handleContainerMouseMove = (e) => {
     if (!isContainerDragging) return;
 
+    const now = Date.now();
+    const timeDiff = now - lastDragTimeRef.current;
     const diff = containerDragStart - e.clientX;
+
+    // Calculate velocity
+    if (timeDiff > 0) {
+      velocityRef.current = (diff / timeDiff) * 16; // Normalize to ~60fps
+    }
+
     scrollPositionRef.current += diff * 1.5; // Multiply for sensitivity
     setContainerDragStart(e.clientX);
+    lastDragTimeRef.current = now;
+    lastDragPosRef.current = e.clientX;
 
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -160,7 +194,63 @@ const Achievements = () => {
     if (isContainerDragging) {
       setIsContainerDragging(false);
       setTargetScrollSpeed(0.5); // Resume auto-scroll
+      // Velocity will continue to decay in animation loop
     }
+  };
+
+  // Touch event handlers for mobile
+  const handleTouchStart = (e) => {
+    setIsTouchDragging(true);
+    setTouchStart(e.touches[0].clientX);
+    setTargetScrollSpeed(0); // Pause auto-scroll while dragging
+    lastDragTimeRef.current = Date.now();
+    lastDragPosRef.current = e.touches[0].clientX;
+    velocityRef.current = 0;
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isTouchDragging) return;
+
+    const now = Date.now();
+    const timeDiff = now - lastDragTimeRef.current;
+    const diff = touchStart - e.touches[0].clientX;
+
+    // Calculate velocity
+    if (timeDiff > 0) {
+      velocityRef.current = (diff / timeDiff) * 16;
+    }
+
+    scrollPositionRef.current += diff * 1.5;
+    setTouchStart(e.touches[0].clientX);
+    lastDragTimeRef.current = now;
+    lastDragPosRef.current = e.touches[0].clientX;
+
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const maxScroll = container.scrollWidth / 2;
+    if (scrollPositionRef.current < 0) {
+      scrollPositionRef.current = maxScroll + scrollPositionRef.current;
+    } else if (scrollPositionRef.current >= maxScroll) {
+      scrollPositionRef.current = scrollPositionRef.current - maxScroll;
+    }
+
+    container.scrollLeft = scrollPositionRef.current;
+  };
+
+  const handleTouchEnd = () => {
+    if (isTouchDragging) {
+      setIsTouchDragging(false);
+      setTargetScrollSpeed(0.5); // Resume auto-scroll
+      // Velocity will continue to decay in animation loop
+    }
+  };
+
+  const handleImageLoad = (index) => {
+    setLoadedImages((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
   };
 
   const handleImageClick = (img) => {
@@ -184,17 +274,15 @@ const Achievements = () => {
   };
 
   const handleMouseDown = (e) => {
-    if (zoomLevel > 1) {
-      setIsDragging(true);
-      setDragStart({
-        x: e.clientX - position.x,
-        y: e.clientY - position.y,
-      });
-    }
+    setIsDragging(true);
+    setDragStart({
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    });
   };
 
   const handleMouseMove = (e) => {
-    if (isDragging && zoomLevel > 1) {
+    if (isDragging) {
       setPosition({
         x: e.clientX - dragStart.x,
         y: e.clientY - dragStart.y,
@@ -203,6 +291,29 @@ const Achievements = () => {
   };
 
   const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Touch handlers for modal image dragging
+  const handleModalTouchStart = (e) => {
+    setIsDragging(true);
+    setDragStart({
+      x: e.touches[0].clientX - position.x,
+      y: e.touches[0].clientY - position.y,
+    });
+  };
+
+  const handleModalTouchMove = (e) => {
+    if (isDragging) {
+      e.preventDefault();
+      setPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleModalTouchEnd = () => {
     setIsDragging(false);
   };
 
@@ -225,6 +336,14 @@ const Achievements = () => {
         </p>
       </div>
 
+      {/* Drag Guide */}
+      {showGuide && (
+        <div className="drag-guide">
+          <MoveHorizontal size={20} className="drag-icon" />
+          <span>Drag to scroll</span>
+        </div>
+      )}
+
       <div
         ref={scrollContainerRef}
         className="messy-grid-container"
@@ -234,6 +353,9 @@ const Achievements = () => {
         onMouseDown={handleContainerMouseDown}
         onMouseMove={handleContainerMouseMove}
         onMouseUp={handleContainerMouseUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         style={{
           cursor: isContainerDragging ? "grabbing" : "grab",
         }}
@@ -265,7 +387,13 @@ const Achievements = () => {
                   onClick={() => handleImageClick(img)}
                 >
                   <div className="image-wrapper">
-                    <img src={img} alt={`Achievement ${originalIndex + 1}`} />
+                    <img
+                      src={img}
+                      alt={`Achievement ${originalIndex + 1}`}
+                      className={loadedImages[index] ? "loaded" : "loading"}
+                      onLoad={() => handleImageLoad(index)}
+                      loading="lazy"
+                    />
                     <div className="hover-overlay">
                       <div className="hover-text">View</div>
                     </div>
@@ -301,7 +429,13 @@ const Achievements = () => {
                   onClick={() => handleImageClick(img)}
                 >
                   <div className="image-wrapper">
-                    <img src={img} alt={`Achievement ${originalIndex + 1}`} />
+                    <img
+                      src={img}
+                      alt={`Achievement ${originalIndex + 1}`}
+                      className={loadedImages[index] ? "loaded" : "loading"}
+                      onLoad={() => handleImageLoad(index)}
+                      loading="lazy"
+                    />
                     <div className="hover-overlay">
                       <div className="hover-text">View</div>
                     </div>
@@ -350,10 +484,12 @@ const Achievements = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
+            onTouchStart={handleModalTouchStart}
+            onTouchMove={handleModalTouchMove}
+            onTouchEnd={handleModalTouchEnd}
             onWheel={handleWheel}
             style={{
-              cursor:
-                zoomLevel > 1 ? (isDragging ? "grabbing" : "grab") : "default",
+              cursor: isDragging ? "grabbing" : "grab",
             }}
           >
             <img
